@@ -24,3 +24,11 @@ build/
 # Misc
 *.tmp
 *.log
+
+# Large media files (to reduce indexing)
+*.mp4
+*.mp3
+*.avi
+*.mov
+*.wmv
+*.flv

@@ -1,0 +1,14 @@
+# Exclude Images folder entirely from Cursor indexing
+Images/
+
+# Large media files - exclude from Cursor indexing
+*.mp4
+*.mp3
+*.avi
+*.mov
+*.wmv
+*.flv
+
+# PDF files
+*.pdf
+
