@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta content="Explore Amir Partow's journey, interests, and aspirations in Computer Science." name="description" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="Images/Ap icon.ico" type="image/png">
+    <title>Amir Partow's Bio Website &mdash; Home</title>
+    <link rel="stylesheet" href="Style.css">
+    <script src="JavaScript.js"></script>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+
+    <header>
+        <h1><strong>Amir Partow's Bio</strong></h1>
+    </header>
+    <main>
+        <div class="container">
+
+            <div class="sidebar">
+                <nav>
+                    <ul>
+                        <li><a href="Home.html">Home</a></li>
+                        <li><a href="Resume.html">Resume</a></li>
+                        <li><a href="Bucket List.html">Bucket List</a></li>
+                        <li><a href="Hobbies & Interests.html">Interests</a></li>
+                        <li><a href="Travel.html">Travel</a></li>
+                        <li><a href="index">Home</a></li>
+                        <li><a href="Contact.html">Contact</a></li>
+                    </ul>
+                </nav>
+            </div><br>
+
+            <div>
+                <div id="homeHero"></div>
+
+                <section class="section">
+                    <div class="column">
+                        <h2>About Me</h2>
+                        <p onmouseover="addHighlight(this)" onmouseout="removeHighlight(this)">Welcome to my blog! I was born on <time datetime="1998-07-26">July 26, 1998</time>. My mom chose my name, <strong>Amir</strong>, after her great-grandfather, who was also named Amir. I don't have a nickname, and my last name, <b>Partow</b>, comes from my father's family. I am currently <script>document.write(new Date().getFullYear() - 1998);</script> years old.</p>
+                    </div>
+                </section>
+
+                <section class="section">
+                    <div class="column">
+                        <h2 id="homeH2">Cultural Identity and Migration Experience</h2>
+                        <p onmouseover="addHighlight(this)" onmouseout="removeHighlight(this)">I am originally from Turkey, since my parents are from there, but I am Persian by heritage. I was born in Iran and raised in Shiraz, a beautiful city in Fars province. In April 2021, during the peak of COVID-19, I immigrated to Canada because all of my siblings live outside of Iran. My parents still live in Iran, but they sometimes travel here to visit us.</p>
+                    </div>
+                    <div class="column">
+                        <h2 id="homeH2">Balancing Work, Education, and Future Goals</h2>
+                        <p onmouseover="addHighlight(this)" onmouseout="removeHighlight(this)">Currently, I work as an Uber driver, which I have been doing for three years. I chose this job because it allows me to be self-employed, and it gives me the flexibility I need while studying English in college. I recently completed the LEAP (Learning English for Academic Purposes) course after 1 year and 4 months. I have also signed up for an Associate Degree in Computer Science, starting in September 2024 at Langara College. My plan is to eventually transfer to a university. Additionally, I hold an Associate Degree in Medical Engineering from Iran.</p>
+                    </div>
+                </section>
+            </div>
+        </div>
+
+    </main>
+
+    <footer id="footer">
+        <a>Copyright &copy; 2024 Amir Partow's Bio Blog.<br></a>
+        <a href="mailto:amir.ap.partow@gmail.com">amir.ap.partow@gmail.com</a>
+    </footer>
+
+</body>
+
+</html>

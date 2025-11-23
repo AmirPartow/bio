@@ -1,0 +1,122 @@
+<!-- References: Aug 9, 2025
+  Inspired by Langara course all labs (especially combining two labs from the course).
+  I also used W3Schools and watched some similar YouTube videos for bubble pop games
+  (but not for the bet with bubble pop idea). Details are provided in my report file.
+  I also used some recommendations from and was inspired by my instructor, Steven-Bojiang Ma,
+  whose creative teaching helped shape this game. All code, logic, and design are original and
+  written by Amir Partow for the Langara 1045 course. Most of the work is based on my own
+  ideas. If I used ideas from YouTube or labs, I always changed and adapted them.
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="description" content="Bet with Bubble Pop game by Amir Partow for 1045 Langara College." />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="Ap icon bubble.ico" type="image/png" />
+  <link rel="stylesheet" href="styles.css" />
+  <script src="script.js" defer></script>
+  <title>Bet with Bubble Pop Game</title>
+</head>
+
+<body>
+
+  <!-- win sound for each levels-->
+  <audio id="winSound" src="Win.mp3"></audio>
+    <!-- win sound for one round-->
+  <audio id="lastLevelWinSound" src="One Round .mp3"></audio>
+  <!-- game over sound -->
+  <audio id="gameOverSound" src="GameOver.mp3"></audio>
+  <!-- pop sound -->
+  <audio id="popSound" src="onePop.mp3"></audio>
+
+  <!-- popped score -->
+  <div class="score-board score-popped" onmouseover="addHighlight(this)" onmouseout="removeHighlight(this)">
+    <p>You Popped <span class="score">0</span> Bubbles</p>
+  </div>
+
+  <!-- missed score -->
+  <div class="score-board score-missed" onmouseover="addHighlight(this)" onmouseout="removeHighlight(this)">
+    <p>You Missed <span class="missed">0</span> Bubbles</p>
+  </div>
+
+  <!-- current level -->
+  <div class="score-board score-level" onmouseover="addHighlight(this)" onmouseout="removeHighlight(this)">
+    <p>Your Level: <span class="level">1</span></p>
+  </div>
+
+  <!-- high score and reset -->
+  <div class="score-board score-high" onmouseover="addHighlight(this)" onmouseout="removeHighlight(this)">
+    <p>
+      Your High Score: <span class="highScore">0</span>
+      <button class="resetScore-btn" onmouseover="addHighlight(this)" onmouseout="removeHighlight(this)">Reset</button>
+    </p>
+  </div>
+
+  <!-- bet message (centered message box) -->
+  <div id="betMessage" class="center-message">You must bet before starting!</div>
+
+  <!-- bet section -->
+  <div class="bet-section" onmouseover="addHighlight(this)" onmouseout="removeHighlight(this)">
+    <p>How much do you want to bet:</p>
+    <input type="number" id="betAmount" />
+    <button id="placeBetBtn" onmouseover="addHighlight(this)" onmouseout="removeHighlight(this)">Click</button>
+  </div>
+
+  <!-- player balance -->
+  <div class="balance-box" onmouseover="addHighlight(this)" onmouseout="removeHighlight(this)">
+    Your balance is: <span id="balanceAmount">0</span>
+  </div>
+
+  <!-- bubble line (end line for bubbles) -->
+  <div class="score-board bubble-line"></div>
+
+  <!-- win/lose popup section -->
+  <div class="shadow">
+    <div class="total-score">
+
+      <!-- win for level 1 -->
+      <div class="wrapper winner level 1">
+        <h4>Congratulations</h4>
+        <h4>You Popped all bubbles for level 1</h4>
+      </div>
+
+      <!-- win for level 2 -->
+      <div class="wrapper winner level 2">
+        <h4>Congratulations</h4>
+        <h4>You Popped all bubbles for level 2</h4>
+      </div>
+
+      <!-- win for level 3 -->
+      <div class="wrapper winner level 3">
+        <h4>Congratulations</h4>
+        <h4>You Popped all bubbles for level 3</h4>
+        <p>You are a Winner!</p>
+      </div>
+
+      <!-- lose message -->
+      <div class="wrapper loser">
+        <h4>Sorry</h4>
+        <h4>You Popped <span class="score"> 0 </span> Bubbles</h4>
+        <p>Do you want to play again?</p>
+        <button class="restart">Yes</button>
+        <button class="cancel">No</button>
+      </div>
+
+    </div>
+  </div>
+  <!-- start area -->
+  <div class="main-game">
+    <h2>Ready to Play</h2>
+    <button class="start-btn" onmouseover="addHighlight(this)" onmouseout="removeHighlight(this)">Start</button>
+  </div>
+
+  <!-- footer -->
+  <footer id="footer">
+    <p>&copy; 2025 Amir's Bet with Bubble Pop Game.</p>
+    <a href="mailto:apartow01@mylangara.ca" style="color: blue;">apartow01@mylangara.ca</a>
+  </footer>
+</body>
+</html>

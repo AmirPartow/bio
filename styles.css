@@ -1,0 +1,281 @@
+/* References: Aug 9, 2025
+  Inspired by Langara course all labs (especially combining two labs from the course).
+  I also used W3Schools and watched some similar YouTube videos for bubble pop games
+  (but not for the bet with bubble pop idea). Details are provided in my report file.
+  I also used some recommendations from and was inspired by my instructor, Steven-Bojiang Ma,
+  whose creative teaching helped shape this game. All code, logic, and design are original and
+  written by Amir Partow for the Langara 1045 course. Most of the work is based on my own
+  ideas. If I used ideas from YouTube or labs, I always changed and adapted them. 
+*/
+
+* {
+  margin: 0px; /* remove margin */
+  padding: 0px; /* remove padding */
+}
+body {
+  background: linear-gradient(to top, #ffffff, #023a24) no-repeat; /* gradient background */
+  background-position: cover; /* background position */
+  background-repeat: no-repeat; /* no repeat */
+  overflow: hidden; /* hide scrollbars */
+  width: 100vw; /* full width */
+  height: 100vh; /* full height */
+}
+.score-board {
+  background: #2c6850; /* dark green bg */
+  color: #f1ebeb; /* light text */
+  text-align: center; /* center text */
+  width: 240px; /* box width */
+  height: 32px; /* box height */
+  font-size: 14px; /* small font */
+  display: none; /* hide by default */
+  justify-content: center; /* center h */
+  align-items: center; /* center v */
+  border-radius: 15px; /* rounded corners */
+  position: absolute; /* absolute position */
+  margin-bottom: 0; /* no margin bottom */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* shadow */
+}
+.score-popped {
+  bottom: 50px; /* from bottom */
+  left: 10px; /* from left */
+}
+.score-missed {
+  bottom: 10px; /* from bottom */
+  left: 10px; /* from left */
+}
+.score-level {
+  bottom: 10px; /* from bottom */
+  right: 10px; /* from right */
+}
+.score-high {
+  bottom: 50px; /* from bottom */
+  right: 10px; /* from right */
+  width: 240px; /* width */
+  height: 32px; /* height */
+  padding: 0; /* no padding */
+  flex-direction: row; /* row flex */
+  box-sizing: border-box; /* border box model */
+}
+
+.score-high p {
+  display: flex; /* flexbox */
+  align-items: center; /* center v */
+  justify-content: center; /* center h */
+  gap: 20px; /* gap between */
+  margin: 0; /* no margin */
+  padding: 0; /* no padding */
+  height: 100%; /* full height */
+}
+
+button.resetScore-btn {
+  color: #e9e5e5; /* light text */
+  background-color: #2c6850; /* dark green bg */
+  border: none; /* no border */
+  border-radius: 15px; /* rounded */
+  font-size: 12px; /* small font */
+  font-weight: normal; /* normal weight */
+  padding: 2px 8px; /* padding */
+  cursor: pointer; /* pointer on hover */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* shadow */
+  transition: transform 0.2s ease; /* smooth transition */
+}
+
+.bet-section {
+  position: absolute; /* absolute */
+  bottom: 10px; /* from bottom */
+  left: 50%; /* center h */
+  transform: translateX(-50%); /* center fix */
+  background-color: #2c6850; /* dark green bg */
+  padding: 4px 10px; /* padding */
+  border-radius: 15px; /* rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* shadow */
+  display: none; /* hide by default */
+  align-items: center; /* center v */
+  justify-content: center; /* center h */
+  gap:15px; /* gap between */
+  color: #fff; /* white text */
+}
+
+.bet-section input {
+  background-color: #2c6850; /* dark green bg */
+  border: 1px solid white; /* white border */
+  border-radius: 15px; /* rounded corners */
+  padding: 5px 5px; /* padding */
+  width: 120px; /* width */
+  text-align: center; /* center text */
+}
+
+.bet-section button {
+  color: #e9e5e5; /* light text */
+  background-color: #2c6850; /* dark green bg */
+  border: none; /* no border */
+  border-radius: 15px; /* rounded */
+  padding: 5px 5px; /* padding */
+  cursor: pointer; /* pointer */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* shadow */
+  transition: transform 0.2s ease; /* smooth transition */
+}
+
+.bet-section button:hover {
+  transform: translateY(-2px); /* move up on hover */
+}
+
+#betMessage {
+  background: #ffb700 !important; /* gold bg */
+  color: #000 !important; /* black text */
+  border-radius: 18px; /* rounded corners */
+  box-shadow: 0 6px 24px rgba(0,0,0,0.16); /* shadow */
+  text-align: center; /* center text */
+  padding: 24px 18px; /* padding */
+  font-size: 1.3em; /* large font */
+}
+
+#betMessage button {
+  background: #e4a70d; /* gold bg */
+  color: #000; /* black text */
+  border: none; /* no border */
+  border-radius: 8px; /* rounded */
+  padding: 6px 18px; /* padding */
+  margin: 8px 4px 0 4px; /* margin */
+  font-size: 1em; /* normal font */
+  cursor: pointer; /* pointer */
+  transition: background 0.15s; /* smooth transition */
+}
+
+#betMessage button:hover {
+  background: #bb8b10; /* darker gold on hover */
+}
+
+.balance-box {
+  position: absolute; /* absolute */
+  bottom: 50px; /* from bottom */
+  left: 50%; /* center h */
+  transform: translateX(-50%); /* center fix */
+  background-color: #2c6850; /* dark green bg */
+  color: #ffffff; /* white text */
+  padding: 4px 10px; /* padding */
+  border-radius: 15px; /* rounded corners */
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* shadow */
+  text-align: center; /* center text */
+  font-size: 18px; /* big font */
+  padding: 5px 80px 8px 80px; /* extra padding */
+  display: none; /* hidden */
+}
+
+.bubble-line {
+  position: fixed; /* fixed */
+  bottom: 100px; /* from bottom */
+  left: 0; /* from left */
+  width: 100vw; /* full width */
+  height: 2px; /* thin line */
+  background-color: #2c6850; /* dark green */
+  display: none; /* hidden */
+  z-index: 10; /* above others */
+}
+
+.center-message {
+  position: fixed; /* fixed */
+  left: 50%; /* center h */
+  top: 40%; /* 40% from top */
+  transform: translate(-50%, -50%); /* center fix */
+  background-color: #033420; /* dark green */
+  color: rgb(207, 206, 206); /* light text */
+  padding: 18px 32px; /* padding */
+  font-size: 20px; /* big font */
+  border-radius: 12px; /* rounded corners */
+  text-align: center; /* center text */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* shadow */
+  z-index: 10000; /* on top */
+  display: none; /* hidden */
+}
+
+.highlight {
+  background-color: rgb(255, 196, 0) !important; /* yellow bg */
+  color: black !important; /* black text */
+  transition: all 0.2s ease; /* smooth */
+  border: 1px solid black; /* border */
+  box-shadow: 0 0 10px rgb(255, 196, 0), 0 0 20px  rgb(255, 196, 0); /* yellow shadow */
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3); /* extra shadow */
+}
+
+.wrapper.loser,
+.wrapper.winner {
+  display: none; /* hidden */
+  background-color: white; /* white bg */
+  padding: 20px; /* padding */
+  border-radius: 10px; /* rounded */
+  text-align: center; /* center text */
+}
+
+.popped {
+  background-color: gold; /* gold color */
+  box-shadow: 0 0 15px white; /* white shadow */
+}
+
+.main-game {
+  width: 100vw; /* full width */
+  height: 100vh; /* full height */
+  display: flex; /* flex layout */
+  align-items: center; /* center v */
+  justify-content: center; /* center h */
+  flex-direction: column; /* vertical stack */
+}
+
+.main-game h2 {
+  font-size: 48px; /* big font */
+  font-weight: bold; /* bold text */
+  color: #000; /* black */
+  margin-bottom: 20px; /* space below */
+}
+
+button.start-btn {
+  font-size: 20px; /* big text */
+  font-weight: bold; /* bold */
+  height: 50px; /* tall */
+  width: 120px; /* wide */
+  border: none; /* no border */
+  border-radius: 25px; /* rounded */
+  background-color: #2c6850; /* dark green */
+  color: #d6d3d3; /* light text */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* shadow */
+  cursor: pointer; /* pointer */
+  margin: 8px auto; /* margin */
+  transition: transform 0.2s ease; /* smooth */
+}
+
+.shadow {
+  display: none; /* hidden */
+  position: fixed; /* fixed */
+  top: 0; /* top */
+  left: 0; /* left */
+  background: rgba(0, 0, 0, 0.5); /* dark overlay */
+  width: 100%; /* full width */
+  height: 100%; /* full height */
+  justify-content: center; /* center h */
+  align-items: center; /* center v */
+  z-index: 999; /* on top */
+}
+
+.total-score {
+  background: #fff; /* white bg */
+  padding: 10px 100px 40px; /* padding */
+  border-radius: 10px; /* rounded */
+  text-align: center; /* center text */
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.8); /* shadow */
+}
+#footer {
+  border: 1px solid rgb(233, 230, 230); /* gray border */
+  position: fixed; /* fixed */
+  bottom: 0; /* bottom */
+  left: 0; /* left */
+  width: 100%; /* full width */
+  text-align: center; /* center text */
+  padding: 5px 10px; /* padding */
+  font-size: 14px; /* small font */
+}
+#footer a {
+  color: rgb(0, 0, 0); /* black */
+  text-decoration: none; /* no underline */
+  margin: 0 5px; /* side margin */
+}
+

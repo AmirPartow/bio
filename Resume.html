@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta content="Amir Partow's resume including professional summary, skills, education, and work experience." name="description" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="Images/Ap icon.ico" type="image/png">
+    <title>Amir Partow's Bio Website &mdash; Resume</title>
+    <link rel="stylesheet" href="Style.css">
+    <script src="JavaScript.js"></script>
+    <meta charset="UTF-8">
+    <style> </style>
+</head>
+
+<body>
+
+    <header>
+        <h1><strong>Amir Partow's Bio</strong></h1>
+    </header>
+    <main>
+        <div class="container">
+
+            <div class="sidebar">
+                <nav>
+                    <ul>
+                        <li><a href="Home.html">Home</a></li>
+                        <li><a href="Resume.html">Resume</a></li>
+                        <li><a href="Bucket List.html">Bucket List</a></li>
+                        <li><a href="Hobbies & Interests.html">Interests</a></li>
+                        <li><a href="Travel.html">Travel</a></li>
+                        <li><a href="index">Home</a></li>
+                        <li><a href="Contact.html">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+
+            <div>
+                <section class="section">
+                    <div class="column">
+                        <h2>Professional Summary</h2>
+                        <p onmouseover="addHighlight(this)" onmouseout="removeHighlight(this)">Dedicated professional with experience in customer service and cash handling. Proven track record in providing excellent customer support, maintaining organized and clean workspaces, and demonstrating a detail-oriented approach. Strong multitasking abilities, great listening skills, and a friendly attitude ensure outstanding service in fast-paced environments. Looking to leverage my skills in a new role within the tech industry.</p>
+                    </div>
+                </section>
+
+                <section class="section">
+
+                    <div class="column">
+                        <h2>Education</h2>
+                        <ul id="resumeUl">
+                            <li id="resumeLi" class="column" onmouseover="addHighlight(this)" onmouseout="removeHighlight(this)"><strong>Langara College</strong>, Vancouver, BC, Canada - Associate's degree in Computer Science <i>(Sep 2024 - Present)</i></li>
+                            <li id="resumeLi" class="column" onmouseover="addHighlight(this)" onmouseout="removeHighlight(this)"><strong>Langara College</strong>, Vancouver, BC, Canada - Certificate of Learning English for Academic Purposes <i>(Jan 2023 - Apr 2024)</i></li>
+                            <li id="resumeLi" class="column" onmouseover="addHighlight(this)" onmouseout="removeHighlight(this)"><strong>ISS Language & Career College</strong>, Vancouver, BC, Canada - General English <i>(Sep 2021 - Dec 2022)</i></li>
+                            <li id="resumeLi" class="column" onmouseover="addHighlight(this)" onmouseout="removeHighlight(this)"><strong>Pasargad University</strong>, Shiraz, Fars, Iran - Associate's Degree in Biomedical Engineering <i>(Sep 2017 - Apr 2021)</i></li>
+                            <li id="resumeLi" class="column" onmouseover="addHighlight(this)" onmouseout="removeHighlight(this)"><strong>Korsandian High School</strong>, Shiraz, Fars, Iran - High School Diploma <i>(Sep 2017 - Apr 2021)</i></li>
+                            <li id="resumeLi" class="column" onmouseover="addHighlight(this)" onmouseout="removeHighlight(this)"><strong>Mousa Kazem Elementary School</strong>, Shiraz, Fars, Iran - Elementary School  <i>(Sep 2010 - Apr 2013)</i></li>
+                            <li id="resumeLi" class="column" onmouseover="addHighlight(this)" onmouseout="removeHighlight(this)"><strong>Khiyabani Primary School</strong>, Shiraz, Fars, Iran - Primary School <i>(Sep 2005 - Apr 2010)</i></li>
+                        </ul>
+                    </div>
+
+                    <div class="column">
+                        <h2>Skills</h2>
+                        <ul id="resumeUl">
+                            <li id="resumeLi" class="column" onmouseover="addHighlight(this)" onmouseout="removeHighlight(this)">Bilingual - Fluent in English and Farsi</li>
+                            <li id="resumeLi" class="column" onmouseover="addHighlight(this)" onmouseout="removeHighlight(this)">Customer Service - Experienced in handling customer inquiries and ensuring satisfaction</li>
+                            <li id="resumeLi" class="column" onmouseover="addHighlight(this)" onmouseout="removeHighlight(this)">Cash Handling - Accurate and efficient in processing transactions</li>
+                            <li id="resumeLi" class="column" onmouseover="addHighlight(this)" onmouseout="removeHighlight(this)">Numeracy Skills - Strong mathematical abilities for accurate transaction processing</li>
+                            <li id="resumeLi" class="column" onmouseover="addHighlight(this)" onmouseout="removeHighlight(this)">Highly Energetic - Enthusiastic and motivated approach to work tasks</li>
+                            <li id="resumeLi" class="column" onmouseover="addHighlight(this)" onmouseout="removeHighlight(this)">Computer Skills - Proficient in Microsoft Office Suite (Word, Excel, PowerPoint)</li>
+                            <li id="resumeLi" class="column" onmouseover="addHighlight(this)" onmouseout="removeHighlight(this)">Communication - Effective communicator with excellent listening skills</li>
+                            <li id="resumeLi" class="column" onmouseover="addHighlight(this)" onmouseout="removeHighlight(this)">Punctual - Consistently reliable and on time for all commitments</li>
+                            <li id="resumeLi" class="column" onmouseover="addHighlight(this)" onmouseout="removeHighlight(this)">Valid Class 4 Driver's License with ICBC Endorsement</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <section class="section">
+                    <div class="column">
+                        <h2>Experience</h2>
+                        <ul class="column" onmouseover="addHighlight(this)" onmouseout="removeHighlight(this)">
+                            <li><strong>Uber - Driver</strong> (Sep 2022 - Present) <br> Provided safe and reliable rides to customers, maintaining a high customer rating. Managed routes efficiently and provided friendly customer service.</li>
+                            <li><strong>Cashier & Customer Service Representative - Dollar Tree</strong>, North Vancouver, BC (Sep 2021 - Sep 2022) <br> Assisted customers in locating products, processed cash and card transactions, and restocked merchandise to ensure a clean and organized store environment.</li>
+                            <li><strong>Uber Eats Driver</strong>, Vancouver, BC (Sep 2021 - Nov 2021) <br> Delivered food orders promptly and efficiently, maintaining communication with customers regarding delivery times.</li>
+                            <li><strong>Newspaper Deliverer - Vancouver Sun</strong> (Apr 2021 - Sep 2021) <br> Delivered newspapers to subscribers on time, ensuring customer satisfaction and reliability.</li>
+                        </ul>
+                    </div>
+                </section>
+            </div>
+        </div>
+
+    </main>
+
+    <footer id="footer">
+        <a>Copyright &copy; 2024 Amir Partow's Bio Blog.<br></a>
+        <a href="mailto:amir.ap.partow@gmail.com">amir.ap.partow@gmail.com</a>
+    </footer>
+
+    <script> </script>
+
+</body>
+
+</html>

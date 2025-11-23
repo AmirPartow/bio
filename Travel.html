@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta content="Amir Partow's travel experiences gallery, showcasing images from various destinations." name="description" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="Images/Ap icon.ico" type="image/png">
+    <title>Amir Partow's Bio Website &mdash; Travel</title>
+    <link rel="stylesheet" href="Style.css">
+    <script src="JavaScript.js"></script>
+    <meta charset="UTF-8">
+    <style> </style>
+</head>
+
+<body>
+
+    <header>
+        <h1><strong>Amir Partow's Bio</strong></h1>
+    </header>
+    <main>
+        <div class="container">
+            <div class="sidebar">
+                <nav>
+                    <ul>
+                        <li><a href="Home.html">Home</a></li>
+                        <li><a href="Resume.html">Resume</a></li>
+                        <li><a href="Bucket List.html">Bucket List</a></li>
+                        <li><a href="Hobbies & Interests.html">Interests</a></li>
+                        <li><a href="Travel.html">Travel</a></li>
+                        <li><a href="index">Home</a></li>
+                        <li><a href="Contact.html">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+
+            <div>
+
+                <section class="section">
+                    <div class="travelLayout">
+                        <h2 onmouseover="addHighlight(this)" onmouseout="removeHighlight(this)">Kish Island, Hormozgan, Iran</h2>
+                        <p onmouseover="addHighlight(this)" onmouseout="removeHighlight(this)">Located in the Persian Gulf, Kish Island is known for its beautiful beaches and vibrant culture. During my visit, I explored famous sites like the Greek Ship, Toranj Marine Hotel, and enjoyed a relaxing day at Simorgh Beach Park.</p>
+                        <div class="gallery">
+                            <div id="travelHero1" alt="Landigraph like Frey" class="thumbnail"></div>
+                            <div id="travelHero2" alt="Toranj Marine Hotel" class="thumbnail"></div>
+                            <div id="travelHero3" alt="The Greek Ship" class="thumbnail"></div>
+                            <div id="travelHero4" alt="Toranj Marine Hotel" class="thumbnail"></div>
+                            <div id="travelHero5" alt="Simorgh Beach Park" class="thumbnail"></div>
+                        </div>
+                        <div class="preview">
+                            <img id="preview-img" src="Images/kish/Kish1.JPG" alt="Preview">
+                            <p id="caption"></p>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="section">
+                    <div class="travelLayout">
+                        <h2 onmouseover="addHighlight(this)" onmouseout="removeHighlight(this)">Dubai, United Arab Emirates</h2>
+                        <p onmouseover="addHighlight(this)" onmouseout="removeHighlight(this)">Dubai is a city of wonders with its unique architecture and luxurious lifestyle. I had an amazing experience visiting the Burj Al Arab, and I stayed at the Royal Central Hotel on The Palm. The city's skyline is absolutely mesmerizing, especially at night.</p>
+                        <div class="gallery">
+                            <div id="travelHero29" alt="Royal Central Hotel and Resort The Palm Dubai" class="thumbnail"></div>
+                            <div id="travelHero30" alt="Royal Central Hotel and Resort The Palm Dubai" class="thumbnail"></div>
+                            <div id="travelHero31" alt="Royal Central Hotel and Resort The Palm Dubai" class="thumbnail"></div>
+                            <div id="travelHero32" alt="Royal Central Hotel and Resort The Palm Dubai" class="thumbnail"></div>
+                            <div id="travelHero33" alt="Burj Al Arab" class="thumbnail"></div>
+                        </div>
+                        <div class="preview">
+                            <img id="preview-img" src="Images/dubai/Dubai1.JPG" alt="Preview">
+                            <p id="caption"></p>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="section">
+                    <div class="travelLayout">
+                        <h2 onmouseover="addHighlight(this)" onmouseout="removeHighlight(this)">Vancouver, BC, Canada</h2>
+                        <p onmouseover="addHighlight(this)" onmouseout="removeHighlight(this)">Vancouver has always fascinated me with its natural beauty and vibrant community. I visited various places such as Bowyer Island, Langara College, Harrison Hot Springs Resort, Twin Falls Bridge, and the Baden Powell Trail. Each place offered a unique experience and a closer connection to nature.</p>
+                        <div class="gallery">
+                            <div id="travelHero36" alt="Bowyer Island" class="thumbnail"></div>
+                            <div id="travelHero37" alt="Langara College" class="thumbnail"></div>
+                            <div id="travelHero38" alt="Harrison Hot Springs Resort" class="thumbnail"></div>
+                            <div id="travelHero39" alt="Twin Falls Bridge" class="thumbnail"></div>
+                            <div id="travelHero40" alt="Bridge - Baden Powell Trail" class="thumbnail"></div>
+                        </div>
+                        <div class="preview">
+                            <img id="preview-img" src="Images/vancouver/Vancouver1.JPG" alt="Preview">
+                            <p id="caption"></p>
+                        </div>
+                    </div>
+                </section>
+
+            </div>
+        </div>
+
+    </main>
+
+    <footer id="footer">
+        <a>Copyright &copy; 2024 Amir Partow's Bio Blog.<br></a>
+        <a href="mailto:amir.ap.partow@gmail.com">amir.ap.partow@gmail.com</a>
+    </footer>
+
+
+
+
+    <script>
+        window.onload = function () {
+            // Get the gallery elements
+            let galleries = document.querySelectorAll(".gallery");
+
+            // Loop through each gallery
+            galleries.forEach(function (gallery) {
+                // Get all thumbnails within the gallery
+                let thumbnails = gallery.querySelectorAll(".thumbnail");
+
+                // Find the preview image and caption using a more robust method
+                let previewContainer = gallery.parentElement.querySelector(".preview");
+                let previewImg = previewContainer.querySelector("#preview-img");
+                let caption = previewContainer.querySelector("#caption");
+
+                // Add a click event to each thumbnail
+                thumbnails.forEach(function (thumbnail) {
+                    thumbnail.onclick = function () {
+                        // Set the preview image source and caption based on the clicked thumbnail
+                        let imageUrl = window.getComputedStyle(thumbnail).backgroundImage.slice(5, -2);
+                        previewImg.src = imageUrl;
+                        caption.textContent = thumbnail.getAttribute("alt");
+                    };
+                });
+            });
+        };
+
+    </script>
+
+    
+</body>
+
+</html>
